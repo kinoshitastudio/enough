@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENOUGH</title>
+  <meta property="og:title" content="ENOUGH">
+  <meta property="og:description" content="数字は、あなたじゃない。">
+  <meta property="og:image" content="https://kinoshitastudio.github.io/enough/ss2.png">
+  <meta property="og:url" content="https://kinoshitastudio.github.io/enough/">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --gray: #555;
+      --gray-light: #888;
+      --line: #1a1a1a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Lang toggle ── */
+    .lang-toggle {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--gray);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-toggle button.active {
+      background: var(--fg);
+      color: var(--bg);
+    }
+    .lang-toggle button:not(.active):hover {
+      color: var(--fg);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(56px, 14vw, 120px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 2vw, 17px);
+      color: var(--gray-light);
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    .hero-cta {
+      margin-top: 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #2a2a2a;
+      padding: 14px 28px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--gray-light);
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: default;
+      transition: border-color 0.2s;
+    }
+    .hero-cta:hover { border-color: #444; }
+
+    .chrome-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .coming-badge {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      background: #1a1a1a;
+      color: var(--gray);
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-left: 4px;
+    }
+
+    /* ── Section ── */
+    .section {
+      padding: 100px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-heading {
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 15px;
+      color: var(--gray-light);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+
+    /* ── Features ── */
+    .features {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .feature {
+      background: var(--bg);
+      padding: 32px 28px;
+    }
+
+    .feature-num {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--gray-light);
+      line-height: 1.7;
+    }
+
+    /* ── Screenshots ── */
+    .screenshots {
+      padding: 0 24px 120px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ss-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .ss-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .ss-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #0a0a0a;
+    }
+
+    .ss-item img {
+      width: 100%;
+      display: block;
+      opacity: 0.92;
+      transition: opacity 0.3s;
+    }
+    .ss-item:hover img { opacity: 1; }
+
+    .ss-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #888;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--fg); }
+
+    /* ── i18n ── */
+    [data-en], [data-ja] { display: none; }
+    .lang-ja [data-ja] { display: block; }
+    .lang-en [data-en] { display: block; }
+    .lang-ja span[data-ja] { display: inline; }
+    .lang-en span[data-en] { display: inline; }
+  </style>
+</head>
+<body class="lang-ja">
+
+  <!-- Lang toggle -->
+  <div class="lang-toggle">
+    <button id="btn-ja" class="active" onclick="setLang('ja')">JP</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">ENOUGH</h1>
+    <p class="hero-sub">
+      <span data-ja>数字は、あなたじゃない。</span>
+      <span data-en>Numbers don't define you.</span>
+    </p>
+    <a class="hero-cta" href="#">
+      <svg class="chrome-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="4.5" stroke="#888" stroke-width="1.5"/>
+        <path d="M12 7.5h8.485M7.757 16.243 3.515 9M16.243 16.243 7.757 16.243" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span data-ja>Chrome 拡張機能</span>
+      <span data-en>Chrome Extension</span>
+      <span class="coming-badge">COMING SOON</span>
+    </a>
+  </section>
+
+  <!-- What -->
+  <div class="section">
+    <p class="section-label">
+      <span data-ja>これは何か</span>
+      <span data-en>What it is</span>
+    </p>
+    <h2 class="section-heading">
+      <span data-ja>SNS を開いた瞬間に、<br>「間」を置く。</span>
+      <span data-en>A pause before<br>you check your numbers.</span>
+    </h2>
+    <p class="section-body">
+      <span data-ja>いいね数・フォロワー数・再生回数を確認しようとしたとき、ENOUGH は数秒間のメッセージを表示します。あなた自身の言葉で。</span>
+      <span data-en>When you reach for likes, followers, or view counts, ENOUGH shows your own words for a few seconds — then steps aside.</span>
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <p class="feature-num">01</p>
+        <p class="feature-title">
+          <span data-ja>自分の言葉を設定</span>
+          <span data-en>Your own message</span>
+        </p>
+        <p class="feature-desc">
+          <span data-ja>デフォルトは「数字は、あなたじゃない。」。自由に書き換えられる。</span>
+          <span data-en>Default is "Numbers don't define you." Change it to anything.</span>
+        </p>
+      </div>
+      <div class="feature">
+        <p class="feature-num">02</p>
+        <p class="feature-title">
+          <span data-ja>表示時間を調整</span>
+          <span data-en>Adjust the pause</span>
+        </p>
+        <p class="feature-desc">
+          <span data-ja>1〜30 秒の範囲で設定できる。</span>
+          <span data-en>Set it from 1 to 30 seconds.</span>
+        </p>
+      </div>
+      <div class="feature">
+        <p class="feature-num">03</p>
+        <p class="feature-title">
+          <span data-ja>数字を完全に隠す</span>
+          <span data-en>Hide metrics entirely</span>
+        </p>
+        <p class="feature-desc">
+          <span data-ja>いいね数・フォロワー数をページから非表示にできる。</span>
+          <span data-en>Remove likes, followers, and view counts from the page.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screenshots -->
+  <div class="screenshots">
+    <p class="ss-label">
+      <span data-ja>動作イメージ</span>
+      <span data-en>In action</span>
+    </p>
+    <div class="ss-grid">
+      <div class="ss-item">
+        <img src="ss1.png" alt="SNS with metrics visible">
+        <p class="ss-caption">
+          <span data-ja>SNS を開く — 数字が並んでいる</span>
+          <span data-en>You open a social platform — numbers everywhere</span>
+        </p>
+      </div>
+      <div class="ss-item">
+        <img src="ss2.png" alt="ENOUGH overlay">
+        <p class="ss-caption">
+          <span data-ja>ENOUGH が割り込む — あなたの言葉が現れる</span>
+          <span data-en>ENOUGH steps in — your words appear</span>
+        </p>
+      </div>
+      <div class="ss-item">
+        <img src="ss3.png" alt="Metrics hidden">
+        <p class="ss-caption">
+          <span data-ja>数字が消える — ノイズなしで見られる</span>
+          <span data-en>Metrics are gone — browse without the noise</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-logo">ENOUGH</span>
+    <div class="footer-links">
+      <a href="privacy.html">
+        <span data-ja>プライバシーポリシー</span>
+        <span data-en>Privacy Policy</span>
+      </a>
+      <a href="https://kinoshitastudio.github.io">kinoshita studio</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('enough-lang', lang);
+    }
+    const saved = localStorage.getItem('enough-lang');
+    if (saved) setLang(saved);
+  </script>
+</body>
+</html>
