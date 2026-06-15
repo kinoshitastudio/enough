@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENOUGH について — 数字は、あなたじゃない。| 木下スタジオ</title>
+<meta name="description" content="ENOUGH は、SNS のメトリクスを確認しようとした瞬間に「問い」を置く Chrome 拡張機能。「隠す」のではなく「間を作る」——木下スタジオ（木下貴博 / 滋賀）が作った、SNS との関係を問い直すツール。">
+<meta property="og:title" content="ENOUGH について — 数字は、あなたじゃない。">
+<meta property="og:description" content="SNS のいいね数・フォロワー数を見る前に、あなた自身の言葉を置く Chrome 拡張機能。隠すのではなく、問いを置く。">
+<meta property="og:url" content="https://kinoshita.studio/enough/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="木下スタジオ">
+<link rel="canonical" href="https://kinoshita.studio/enough/about.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ENOUGH について | 木下スタジオ">
+<meta name="twitter:description" content="SNS のメトリクスを確認しようとした瞬間に「問い」を置く Chrome 拡張機能。隠すのではなく、間を作る。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ENOUGH","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","url":"https://chromewebstore.google.com/detail/enough/fhppbhgpbnooiilidflaajmbknbchlnb","description":"SNSのメトリクス確認行動の前に「問い」を置くChrome拡張機能。いいね数・フォロワー数・再生回数を見る前に、自分の言葉を表示する。「隠す」のではなく「間を作る」。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Person","name":"木下貴博","url":"https://kinoshita.studio/about.html","worksFor":{"@type":"Organization","name":"木下スタジオ","url":"https://kinoshita.studio/"}}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"木下スタジオ","item":"https://kinoshita.studio/"},{"@type":"ListItem","position":2,"name":"プロダクト","item":"https://kinoshita.studio/app.html"},{"@type":"ListItem","position":3,"name":"ENOUGH","item":"https://kinoshita.studio/enough/about.html"}]}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#000;--fg:#fff;--gray:#555;--gray-light:#888;--line:#1a1a1a}
+html{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+body{min-height:100vh}
+a{color:var(--fg);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
+a:hover{text-decoration-color:var(--fg)}
+
+/* NAV */
+.top-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--bg);z-index:100;
+}
+.logo{font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--fg);text-decoration:none}
+.logo:hover{text-decoration:none;opacity:.7}
+.back-link{font-size:11px;color:var(--gray-light);text-decoration:none;letter-spacing:.04em}
+.back-link:hover{color:var(--fg)}
+
+/* SECTIONS */
+.section{padding:72px 40px;max-width:680px;margin:0 auto}
+.section+.section{border-top:1px solid var(--line)}
+.label{font-size:10px;letter-spacing:.18em;color:var(--gray);text-transform:uppercase;margin-bottom:20px}
+h1{font-size:clamp(32px,6vw,60px);font-weight:700;line-height:1.1;letter-spacing:-.01em;margin-bottom:24px}
+h2{font-size:clamp(20px,3vw,28px);font-weight:700;line-height:1.2;margin-bottom:20px}
+.body{font-size:14px;color:var(--gray-light);line-height:1.9;margin-bottom:20px}
+.body strong{color:var(--fg)}
+
+/* QUOTE */
+.quote{font-size:clamp(18px,2.5vw,24px);font-weight:700;line-height:1.4;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:36px 0}
+
+/* CTA */
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-block;padding:12px 24px;border:1px solid var(--fg);
+  color:var(--fg);font-size:12px;letter-spacing:.08em;
+  text-decoration:none;transition:background .15s,color .15s;
+}
+.btn:hover{background:var(--fg);color:var(--bg);text-decoration:none}
+.btn-ghost{border-color:var(--gray);color:var(--gray)}
+.btn-ghost:hover{background:var(--line);color:var(--fg);text-decoration:none}
+
+/* CONTRAST */
+.contrast{
+  background:#fff;color:#000;padding:40px;margin:32px 0;
+  font-size:14px;line-height:1.9;
+}
+.contrast h3{font-size:16px;font-weight:700;margin-bottom:16px}
+
+/* FOOTER */
+.page-footer{padding:40px 40px;border-top:1px solid var(--line);text-align:center;font-size:11px;color:var(--gray)}
+.page-footer a{color:var(--gray)}
+.page-footer a:hover{color:var(--fg)}
+
+@media(max-width:600px){
+  .top-nav{padding:14px 20px}
+  .section{padding-left:20px;padding-right:20px}
+  .contrast{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="logo" href="./">ENOUGH</a>
+  <a class="back-link" href="https://kinoshita.studio/app.html">← プロダクト一覧</a>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+  <p class="label">ENOUGH — about</p>
+  <h1>数字は、<br>あなたじゃない。</h1>
+  <p class="body">
+    SNS を開くたびに数字を確認する。その行動は習慣か、強迫か。
+    ENOUGH はその境界に、静かに問いを置く Chrome 拡張機能。
+  </p>
+  <div class="cta-row">
+    <a class="btn" href="https://chromewebstore.google.com/detail/enough/fhppbhgpbnooiilidflaajmbknbchlnb" target="_blank" rel="noopener">Chrome に追加する ↗</a>
+    <a class="btn btn-ghost" href="manual.html">使い方・マニュアル →</a>
+  </div>
+</div>
+
+<!-- WHY -->
+<div class="section">
+  <p class="label">なぜ作ったか</p>
+  <h2>「隠す」のではなく、「間を作る」。</h2>
+  <p class="body">
+    フォロワー数を隠すアプリは多い。でも、それは問題の本質に触れていない。
+    数字が見えなくなっても、確認したいという衝動は消えない。
+  </p>
+  <p class="body">
+    ENOUGH が介入するのは、数字を「見る前」の一瞬。
+    いいね数に向かおうとした指の動きに、<strong>あなた自身の言葉</strong>を割り込ませる。
+    それだけでいい。
+  </p>
+  <div class="quote">
+    「十分か、どうかは、<br>数字が決めることじゃない。」
+  </div>
+  <p class="body">
+    5秒間の問いかけが終われば、ENOUGH はどく。数字を見てもいい。
+    でも、その5秒を経た後の「見方」は、少し違うかもしれない。
+  </p>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <p class="label">仕組み</p>
+  <h2>3つのことだけやる。</h2>
+  <p class="body">ENOUGH はシンプルに動く。余計な機能は入れない。</p>
+
+  <div class="contrast">
+    <h3>01 — あなたの言葉を設定する</h3>
+    <p>デフォルトは「数字は、あなたじゃない。」。拡張機能のポップアップから、あなた自身の言葉に書き換えられる。</p>
+  </div>
+  <div class="contrast" style="margin-top:12px">
+    <h3>02 — 表示する時間を決める</h3>
+    <p>1秒から30秒まで設定できる。短くても、言葉は残る。</p>
+  </div>
+  <div class="contrast" style="margin-top:12px">
+    <h3>03 — 数字を非表示にする（任意）</h3>
+    <p>いいね数・フォロワー数をページから完全に消すこともできる。問いだけでは足りない、と思ったときに。</p>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<div class="section">
+  <p class="label">思想</p>
+  <h2>問い続ける道具。</h2>
+  <p class="body">
+    このツールは「SNS をやめましょう」とは言わない。
+    数字が人を傷つけると断言もしない。ただ一点、
+    <strong>行動が無意識であることに、少しだけ抵抗する</strong>ためにある。
+  </p>
+  <p class="body">
+    George Hotz が言った——「問いを持つ者は支配されない。」
+    ENOUGH はその問いを、毎日の SNS 確認行動に埋め込む小さな装置だ。
+  </p>
+</div>
+
+<footer class="page-footer">
+  <p><a href="https://chromewebstore.google.com/detail/enough/fhppbhgpbnooiilidflaajmbknbchlnb" target="_blank" rel="noopener">Chrome ウェブストア</a> &nbsp;·&nbsp; <a href="manual.html">マニュアル</a> &nbsp;·&nbsp; <a href="https://kinoshita.studio/">木下スタジオ</a></p>
+</footer>
+
+</body>
+</html>
